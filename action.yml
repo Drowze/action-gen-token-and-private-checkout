@@ -7,23 +7,20 @@ inputs:
   with:
     description: Centralised action with parameters
     default: ""
+  private_key:
+    description: key
+    required: true
 
 runs:
   using: composite
   steps:
     - run: |
-        if [ "${OH_ACTIONS_APP_ID}" -eq "${{ secrets.OH_ACTIONS_APP_ID }}" ]; then
-          echo "app id igual"
-        fi
         env_private_key=$(printf "%s" "${OH_ACTIONS_PRIVATE_KEY}" | base64 -w 0)
-        sec_private_key=$(printf "%s" "${{ secrets.OH_ACTIONS_PRIVATE_KEY }}" | base64 -w 0)
+        sec_private_key=$(printf "%s" "${{ inputs.private_key }}" | base64 -w 0)
         echo "${env_private_key}"
 
         if [ "${env_private_key}" == "${sec_private_key}" ]; then
           echo "private key igual"
-        fi
-        if [ "${OH_ACTIONS_INSTALLATION_ID}" -eq "${{ secrets.OH_ACTIONS_INSTALLATION_ID }}" ]; then
-          echo "installation id igual"
         fi
       shell: bash
 
