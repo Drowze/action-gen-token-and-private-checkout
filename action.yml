@@ -23,7 +23,7 @@ runs:
       with:
         app_id: ${OH_ACTIONS_APP_ID}
         private_key: ${OH_ACTIONS_PRIVATE_KEY}
-        installation_id: ${OH_ACTIONS_INSTALLATION_ID}
+        repository: Over-haul/gh-actions
 
     - name: Checkout centralised CI configs
       uses: actions/checkout@v2
