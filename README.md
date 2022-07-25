@@ -32,6 +32,12 @@ Under the hood it depends on:
 
 **Optional** The path you want to clone to. Default to `"."`
 
+## Outputs:
+
+## `token`
+
+The GitHub token generated. Useful in case you plan to do additional work with it (in addition to pulling the repository).
+
 ## Usage
 ```yml
 - name: Checkout secrets
